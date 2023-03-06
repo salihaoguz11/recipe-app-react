@@ -46,5 +46,11 @@ export const MenuLink = styled(Link)`
 `;
 
 export const Hamburger = styled.div`
-  /* ... */
+  display: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.mainColor};
+
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    display: block;
+  }
 `;
