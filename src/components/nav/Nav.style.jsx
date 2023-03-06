@@ -23,8 +23,8 @@ export const Menu = styled(Flex)`
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     flex-direction: column;
     width: 100%;
-    /* max-height: ${({ isOpen }) => (isOpen ? "400px" : "0")};
-    overflow: hidden; */
+    max-height: ${({ isOpen }) => (isOpen ? "400px" : "0")};
+    overflow: hidden;
   }
 `;
 
@@ -43,4 +43,8 @@ export const MenuLink = styled(Link)`
     width: 100%;
     border-bottom: 2px solid ${({ theme }) => theme.colors.mainColor};
   }
+`;
+
+export const Hamburger = styled.div`
+  /* ... */
 `;
