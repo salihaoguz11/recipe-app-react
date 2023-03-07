@@ -5,6 +5,7 @@ import Login from "../pages/login/Login";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Nav from "../components/nav/Nav";
 import { GlobalStyle } from "../components/globalStyles/GlobalStyle";
+import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
   return (
@@ -14,8 +15,13 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
-        <Route path="about" element={<About />} />
-        <Route path="detail" element={<Detail />} />
+        <Route path="about" element={<PrivateRouter />}>
+          <Route path="" element={<About />} />
+        </Route>
+
+        <Route path="detail" element={<PrivateRouter />}>
+          <Route path="" element={<Detail />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
