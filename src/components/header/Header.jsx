@@ -1,15 +1,36 @@
-const Header = ({ setQuery }) => {
+import {
+  Button,
+  FoodInput,
+  FormContainer,
+  HeaderContainer,
+  MainHeader,
+  Select,
+} from "./Header.style";
+
+const Header = ({ setQuery, setSelectedMeal, mealType, getData }) => {
   return (
-    <form>
-      <h2>Recipe App</h2>
-      <input
-        type="text"
-        placeholder="search"
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button>SEARCH</button>
-      <select name="mealType" id="mealType"></select>
-    </form>
+    <HeaderContainer>
+      <MainHeader>Recipe App</MainHeader>
+      <FormContainer>
+        <FoodInput
+          type="text"
+          placeholder="search"
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <Button>SEARCH</Button>
+        <Select
+          name="mealType"
+          id="mealType"
+          onChange={(e) => setSelectedMeal(e.target.value)}
+        >
+          {mealType.map((meal, index) => (
+            <option key={index} value={meal}>
+              {meal}
+            </option>
+          ))}
+        </Select>
+      </FormContainer>
+    </HeaderContainer>
   );
 };
 
