@@ -1,4 +1,5 @@
 import meal from "../../assets/meal.svg";
+import { useNavigate } from "react-router-dom";
 import {
   FormContainer,
   Header,
@@ -10,12 +11,14 @@ import {
 } from "./Login.style";
 
 const Login = () => {
+  const navigate = useNavigate();
   const userInfo = {
     username: "admin",
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem("user", JSON.stringify(userInfo));
+    navigate(-1);
   };
   return (
     <LoginContainer>
