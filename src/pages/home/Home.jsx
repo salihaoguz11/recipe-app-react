@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      <Header setQuery={setQuery} />
       {!recipes && (
         <ImgDiv>
           <HomeImg src={homeSvg} />
