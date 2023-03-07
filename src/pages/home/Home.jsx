@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Header from "../../components/header/Header";
+import homeSvg from "../../assets/home.svg";
+import { HeaderText, HomeImg, ImgDiv } from "./Home.style";
 
 const Home = () => {
   // const APP_ID = process.env.REACT_APP_APP_ID;
@@ -13,27 +16,38 @@ const Home = () => {
   const mealType = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
-  const getData = async() => {
-    if(query){
-     try {
-       const {data} = await axios(url)
-       console.log(data)
+
+  const getData = async () => {
+    if (query) {
+      try {
+        const { data } = await axios(url);
+        setRecipes(data.hits);
+        console.log(data);
       } catch (error) {
-       console.log(error)
+        console.log(error);
       }
-     }
-    else {
-     alert("Fill the form")
+    } else {
+      alert("Fill the form");
     }
-   };
-  
+  };
+
   useEffect(() => {
     getData();
   }, []);
 
   return (
-    
-  )
+    <div>
+      <Header />
+      {!recipes && (
+        <ImgDiv>
+          <HomeImg src={homeSvg} />
+        </ImgDiv>
+      )}
+      {recipes?.length === 0 && (
+        <HeaderText>The Food can not be found</HeaderText>
+      )}
+    </div>
+  );
 };
 
 export default Home;
