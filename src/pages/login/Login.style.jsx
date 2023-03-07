@@ -27,7 +27,7 @@ export const Header = styled.h1`
 
 export const StyledInput = styled.input`
   height: 3rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   width: 15rem;
 
   border-radius: 5px;
