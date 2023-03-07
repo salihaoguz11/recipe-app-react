@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "../../components/header/Header";
 import homeSvg from "../../assets/home.svg";
 import { HeaderText, HomeImg, ImgDiv } from "./Home.style";
+import Cards from "../../components/cards/Cards";
 
 const Home = () => {
   // const APP_ID = process.env.REACT_APP_APP_ID;
@@ -51,6 +52,7 @@ const Home = () => {
       {recipes?.length === 0 && (
         <HeaderText>The Food can not be found</HeaderText>
       )}
+      {recipes?.length > 0 && <Cards recipes={recipes} />}
     </div>
   );
 };
