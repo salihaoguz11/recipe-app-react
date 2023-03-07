@@ -1,5 +1,39 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const Home = () => {
-  return <div>home</div>;
+  // const APP_ID = process.env.REACT_APP_APP_ID;
+  // const APP_KEY = process.env.REACT_APP_APP_KEY;
+  const APP_ID = "23e45066";
+  const APP_KEY = "e46daad811879d59137070f92d6bceca	";
+
+  const [query, setQuery] = useState("egg");
+  const [selectedMeal, setSelectedMeal] = useState("breakfast");
+  const [recipes, setRecipes] = useState(null);
+  const mealType = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
+
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
+  const getData = async() => {
+    if(query){
+     try {
+       const {data} = await axios(url)
+       console.log(data)
+      } catch (error) {
+       console.log(error)
+      }
+     }
+    else {
+     alert("Fill the form")
+    }
+   };
+  
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    
+  )
 };
 
 export default Home;
