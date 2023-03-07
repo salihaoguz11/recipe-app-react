@@ -1,17 +1,25 @@
 import meal from "../../assets/meal.svg";
-import { FormContainer, LoginContainer } from "./Login.style";
+import {
+  FormContainer,
+  Header,
+  LoginContainer,
+  StyledInput,
+  StyledForm,
+  StyledButton,
+  StyledImg,
+} from "./Login.style";
 
 const Login = () => {
   return (
     <LoginContainer>
       <FormContainer>
-        <img src={meal} alt="" width={250} />
-        <h1> Recipe</h1>
-        <form action="">
-          <input type="text" placeholder="Enter username" />
-          <input type="text" placeholder="Enter password" />
-          <button type="submit">LOGIN</button>
-        </form>
+        <StyledImg src={meal} alt="" />
+        <Header> Recipe</Header>
+        <StyledForm action="">
+          <StyledInput type="text" placeholder="Enter username" />
+          <StyledInput type="password" placeholder="Enter password" />
+          <StyledButton type="submit">Login</StyledButton>
+        </StyledForm>
       </FormContainer>
     </LoginContainer>
   );
